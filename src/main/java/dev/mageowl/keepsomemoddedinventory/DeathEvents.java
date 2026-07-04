@@ -23,7 +23,7 @@ public class DeathEvents {
         }
     }
 
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    @SubscribeEvent(priority = EventPriority.LOW)
     public static void onEntityDropItems(LivingDropsEvent event) {
         if (!Config.modEnabled) return;
 
@@ -34,8 +34,7 @@ public class DeathEvents {
             drops.removeIf((drop) -> {
                 ItemStack item = drop.getItem();
 
-                if (KeepSomeModdedInventory.shouldDrop(item, event.getEntity().level())) {
-                    inventory.remove(item);
+                if (KeepSomeModdedInventory.shouldDrop(item, event.getEntity().level()) && inventory.remove(item)) {
                     drop.setDeltaMovement(
                             drop.getDeltaMovement().multiply(
                                     Config.itemVelocityMultiplier,

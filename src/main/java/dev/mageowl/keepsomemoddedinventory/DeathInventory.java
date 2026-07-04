@@ -4,7 +4,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
@@ -30,13 +29,15 @@ public class DeathInventory implements INBTSerializable<CompoundTag> {
         this.items = items;
     }
 
-    public void remove(ItemStack item) {
+    /** @return true if the item was in the inventory */
+    public boolean remove(ItemStack item) {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i) == item) {
                 items.set(i, ItemStack.EMPTY);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public void restore(ServerPlayer player) {

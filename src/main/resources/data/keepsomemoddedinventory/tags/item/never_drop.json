@@ -12,6 +12,8 @@
     "#compasses",
     "clock",
     "spyglass",
+    "carrot_on_a_stick",
+    "warped_fungus_on_a_stick",
 
     {
       "id": "#keepsomemoddedinventory:never_drop/create",
