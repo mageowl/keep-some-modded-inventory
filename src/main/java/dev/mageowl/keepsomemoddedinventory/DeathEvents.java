@@ -42,7 +42,12 @@ public class DeathEvents {
                                     Config.itemVelocityMultiplier
                             )
                     );
-                    drop.setUnlimitedLifetime();
+                    if (Config.dropDespawnTime > 0) {
+                        // We use an access transformer to allow ourselves to modify age.
+                        drop.age = 6000 - (int) (1200 * Config.dropDespawnTime);
+                    } else {
+                        drop.setUnlimitedLifetime();
+                    }
                     return false;
                 } else return true;
             });

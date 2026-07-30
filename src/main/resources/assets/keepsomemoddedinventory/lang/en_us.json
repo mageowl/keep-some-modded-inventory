@@ -4,5 +4,6 @@
   "keepsomemoddedinventory.configuration.keepDamageable": "Keep damageable items",
   "keepsomemoddedinventory.configuration.keepEquippable":  "Keep equippable items",
   "keepsomemoddedinventory.configuration.itemVelocityMultiplier": "Item velocity multiplier",
-  "keepsomemoddedinventory.configuration.experienceDropped": "% of experience"
+  "keepsomemoddedinventory.configuration.experienceDropped": "% of experience",
+  "keepsomemoddedinventory.configuration.dropDespawnTime": "Despawn time (minutes)"
 }

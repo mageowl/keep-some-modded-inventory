@@ -1,7 +1,5 @@
 package dev.mageowl.keepsomemoddedinventory;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
@@ -31,6 +29,9 @@ public class Config {
     private static final ModConfigSpec.DoubleValue EXPERIENCE_DROPPED = BUILDER
             .comment("Percent of experience should be dropped when you die. Set to 0 to use Minecraft's calculations.")
             .defineInRange("experienceDropped", 1.0, 0.0, 1.0);
+    private static final ModConfigSpec.DoubleValue DROP_DESPAWN_TIME = BUILDER
+            .comment("Time that items dropped on death should last. Set to 0 to make them never despawn.")
+            .defineInRange("dropDespawnTime", 0.0, 0.0, Double.POSITIVE_INFINITY);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 
@@ -40,10 +41,7 @@ public class Config {
     public static boolean keepEquippable;
     public static double itemVelocityMultiplier;
     public static double experienceDropped;
-
-    private static boolean validateItemName(final Object obj) {
-        return obj instanceof String itemName && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
-    }
+    public static double dropDespawnTime;
 
     @SubscribeEvent
     static void onLoad(ModConfigEvent event) {
@@ -54,5 +52,6 @@ public class Config {
         keepEquippable = KEEP_EQUIPPABLE.get();
         itemVelocityMultiplier = ITEM_VELOCITY_MULTIPLIER.get();
         experienceDropped = EXPERIENCE_DROPPED.get();
+        dropDespawnTime = DROP_DESPAWN_TIME.get();
     }
 }
