@@ -1,5 +1,6 @@
 {
   "values": [
+    "#minecraft:shulker_boxes",
     {
       "id": "#keepsomemoddedinventory:always_drop/sophisticated_backpacks",
       "required": false
