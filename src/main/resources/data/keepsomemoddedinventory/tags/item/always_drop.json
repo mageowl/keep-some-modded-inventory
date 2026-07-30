@@ -1,4 +1,8 @@
 {
   "values": [
+    {
+      "id": "#keepsomemoddedinventory:always_drop/sophisticated_backpacks",
+      "required": false
+    }
   ]
 }
