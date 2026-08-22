@@ -34,7 +34,9 @@ public class DeathEvents {
             drops.removeIf((drop) -> {
                 ItemStack item = drop.getItem();
 
-                if (KeepSomeModdedInventory.shouldDrop(item, event.getEntity().level()) && inventory.remove(item)) {
+                // If the item wasn't in the inventory, we should drop it no matter what because otherwise it will
+                // just get deleted.
+                if (!inventory.remove(item) || KeepSomeModdedInventory.shouldDrop(item, event.getEntity().level())) {
                     drop.setDeltaMovement(
                             drop.getDeltaMovement().multiply(
                                     Config.itemVelocityMultiplier,

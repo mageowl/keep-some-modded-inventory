@@ -23,7 +23,7 @@ public class DeathInventory implements INBTSerializable<CompoundTag> {
         items.addAll(inventory.armor);
         items.addAll(inventory.offhand);
 
-        KeepSomeModdedInventory.LOGGER.info("Filling inventory with {} item stacks", items.size());
+        KeepSomeModdedInventory.LOGGER.info("Saving inventory with {} item stacks", items.size());
     }
     private DeathInventory(NonNullList<ItemStack> items) {
         this.items = items;
