@@ -1,8 +1,16 @@
 {
   "values": [
-    "#minecraft:shulker_boxes",
+    "#c:shulker_boxes",
     {
       "id": "#keepsomemoddedinventory:always_drop/sophisticated_backpacks",
+      "required": false
+    },
+    {
+      "id": "#keepsomemoddedinventory:always_drop/yyzsbackpack",
+      "required": false
+    },
+    {
+      "id": "#keepsomemoddedinventory:always_drop/occultism",
       "required": false
     }
   ]
