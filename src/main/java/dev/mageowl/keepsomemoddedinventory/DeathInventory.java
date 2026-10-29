@@ -29,6 +29,10 @@ public class DeathInventory implements INBTSerializable<CompoundTag> {
         this.items = items;
     }
 
+    public boolean has(ItemStack item) {
+        return items.contains(item);
+    }
+
     /** @return true if the item was in the inventory */
     public boolean remove(ItemStack item) {
         for (int i = 0; i < items.size(); i++) {
